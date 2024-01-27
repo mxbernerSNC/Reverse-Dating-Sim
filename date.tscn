@@ -1,19 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsplnkju8h0m3"]
+[gd_scene load_steps=3 format=3 uid="uid://bsplnkju8h0m3"]
+
+[ext_resource type="Script" path="res://prompt.gd" id="1_iy358"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xp4m0"]
 font_size = 32
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Control" type="Control" parent="."]
+[node name="prompt" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 768.0
 offset_right = 1920.0
 offset_bottom = 1038.0
+script = ExtResource("1_iy358")
 metadata/_edit_use_anchors_ = true
 
-[node name="opt1" type="Button" parent="Control"]
+[node name="opt1" type="Button" parent="prompt"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -25,7 +28,7 @@ offset_bottom = 25.0
 grow_vertical = 2
 text = "option1"
 
-[node name="opt2" type="Button" parent="Control"]
+[node name="opt2" type="Button" parent="prompt"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -41,7 +44,7 @@ grow_vertical = 2
 text = "option2
 "
 
-[node name="opt3" type="Button" parent="Control"]
+[node name="opt3" type="Button" parent="prompt"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -53,7 +56,7 @@ grow_vertical = 0
 text = "option3
 "
 
-[node name="opt4" type="Button" parent="Control"]
+[node name="opt4" type="Button" parent="prompt"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -67,7 +70,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "option4"
 
-[node name="question" type="Label" parent="Control"]
+[node name="question" type="Label" parent="prompt"]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 1
 anchors_preset = 10
