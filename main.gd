@@ -1,35 +1,53 @@
 extends Node2D
 
 var scenes = {
-	"intro_scene.tscn": {
-		"question": "what is the winning position in a race?",
+	"phone.tscn": {
+		"question": "The date starts in an hour... What will you do?",
 		"options": [
-			{"text": "first", "next": "first_scene.tscn"},
-			{"text": "second", "next": "second_scene.tscn"},
-			{"text": "third", "next": "second_scene.tscn"},
-			{"text": "fourth", "next": "second_scene.tscn"}
+			{"text": "Take a long bath", "next": "shop.tscn"},
+			{"text": "Take a one hour nap", "next": "shop.tscn"},
+			{"text": "Roll around in mud", "next": "shop.tscn"},
+			{"text": "Play your favorite video game", "next": "shop.tscn"}
 		]
 	},
-	"first_scene.tscn": {
-		"question": "Correct!!! now what?",
+	"shop.tscn": {
+		"question": "How can you get out of this situation?",
 		"options": [
-			{"text": "fifth", "next": "fifth.tscn"},
-			{"text": "sixth", "next": "sixth.tscn"},
-			{"text": "seventh", "next": "seventh.tscn"},
-			{"text": "eigth", "next": "eigth.tscn"}
+			{"text": "ignore her and change the subject", "next": "neutral.tscn"},
+			{"text": "Pretend to fall off your chair", "next": "fire.tscn"},
+			{"text": "Excuse yourself and go to the bathroom", "next": "fire.tscn"},
+			{"text": "Accuse her of a crime", "next": "argument.tscn"}
 		]
 	},
-	"second_scene.tscn": {
-		"question": "wrong answer!!! which position is last?",
+	"fire.tscn": {
+		"question": "Its getting hot in here, what do you do?",
 		"options": [
-			{"text": "ninth", "next": "ninth.tscn"},
-			{"text": "tenth", "next": "tenth.tscn"},
-			{"text": "eleventh", "next": "eleventh.tscn"},
-			{"text": "twelveth", "next": "twelveth.tscn"}
+			{"text": "Try to put out the fire", "next": "jail.tscn"},
+			{"text": "Run away", "next": "good_end.tscn"},
+			{"text": "Panic", "next": "jail.tscn"},
+			{"text": "Blame your date", "next": "jail.tscn"}
+		]
+	},
+	"neutral.tscn": {
+		"question": "You managed to move on, but now she is asking for another date?",
+		"options": [
+			{"text": "Agree to a second date", "next": "bad_end.tscn"},
+			{"text": "Run away", "next": "bad_end.tscn"},
+			{"text": "Panic", "next": "good_end.tscn"},
+			{"text": "Propose marrige", "next": "bad_end.tscn"}
+		]
+	},
+	"argument.tscn": {
+		"question": "The whole coffee shop is looking at you, what do you do?",
+		"options": [
+			{"text": "try to calm everyone down", "next": "good_end.tscn"},
+			{"text": "run away", "next": "good_end.tscn"},
+			{"text": "panic", "next": "good_end.tscn"},
+			{"text": "blame your date", "next": "bad_end.tscn"}
 		]
 	}
 }
 
 func _ready():
 	$prompt.scenes = scenes
-	$prompt.init_scene(scenes["intro_scene.tscn"])
+	$prompt.init_scene(scenes["phone.tscn"])
