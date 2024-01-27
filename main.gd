@@ -4,13 +4,13 @@ var scenes = {
 	"phone.tscn": {
 		"question": "The date starts in an hour... What will you do?",
 		"options": [
-			{"text": "Take a long bath", "next": "shop.tscn"},
-			{"text": "Take a one hour nap", "next": "shop.tscn"},
-			{"text": "Roll around in mud", "next": "shop.tscn"},
-			{"text": "Play your favorite video game", "next": "shop.tscn"}
+			{"text": "Take a long bath", "next": "distraction.tscn"},
+			{"text": "Take a one hour nap", "next": "distraction.tscn"},
+			{"text": "Roll around in mud", "next": "distraction.tscn"},
+			{"text": "Play your favorite video game", "next": "distraction.tscn"}
 		]
 	},
-	"shop.tscn": {
+	"distraction.tscn": {
 		"question": "How can you get out of this situation?",
 		"options": [
 			{"text": "ignore her and change the subject", "next": "neutral.tscn"},
@@ -48,6 +48,11 @@ var scenes = {
 	}
 }
 
+var phone_scene = preload("res://phone.tscn").instantiate()
+
 func _ready():
 	$prompt.scenes = scenes
-	$prompt.init_scene(scenes["phone.tscn"])
+	add_child(phone_scene)
+	$prompt.init_scene("phone.tscn")
+
+# todo: when $prompt._option_selected, remove previous scene and load next_scene

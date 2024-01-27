@@ -3,7 +3,8 @@ extends Control
 var scenes
 var options
 
-func init_scene(scene):
+func init_scene(scene_name):
+	var scene = scenes[scene_name]
 	options = self.find_children("opt*")
 	$question.text = scene.question
 	for i in range(0, len(scene.options)):
@@ -17,4 +18,4 @@ func init_scene(scene):
 func _option_selected(next_scene):
 	print("Switching to ", next_scene)
 	if next_scene in scenes:
-		init_scene(scenes[next_scene])
+		init_scene(next_scene)
