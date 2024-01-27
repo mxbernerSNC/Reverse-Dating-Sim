@@ -7,10 +7,11 @@ func init_scene(scene):
 	options = self.find_children("opt*")
 	$question.text = scene.question
 	for i in range(0, len(scene.options)):
-		options[i].disconnect("pressed", _option_selected)
+		# update text 
 		options[i].text = scene.options[i].text
-		
-		# send next scene to _option_selected when button is pressed
+		# disconnect buttons from previous scene
+		options[i].disconnect("pressed", _option_selected)
+		# connect button to _option_selected with next scene
 		options[i].pressed.connect(_option_selected.bind(scene.options[i].next))
 
 func _option_selected(next_scene):
