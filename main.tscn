@@ -7,3 +7,4 @@
 script = ExtResource("1_efkcx")
 
 [node name="prompt" parent="." instance=ExtResource("1_gw8ds")]
+z_index = 100
