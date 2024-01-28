@@ -1,9 +1,5 @@
 extends Node2D
 
-var affection = 50
-#if var == 0, adv to bad ending; if var ==100, adv to elope ending immediately
-#else keep playing; once '20 questions' is over, score checked 25 < aff <75 correlates to bad < good < elope
-
 var scene_text = {
 	"phone.tscn": {
 		"question": "The date starts in an hour... What will you do?",
@@ -70,6 +66,11 @@ var scene_text = {
 	}
 }
 
+var current_scene
+var affection = 50
+#if var == 0, adv to bad ending; if var ==100, adv to elope ending immediately
+#else keep playing; once '20 questions' is over, score checked 25 < aff <75 correlates to bad < good < elope
+
 var scene_tscn = {
 	"phone.tscn": preload("res://phone.tscn"),
 	"drive.tscn": preload("res://drive.tscn"),
@@ -82,8 +83,20 @@ func _ready():
 	
 func _start_game():
 	$prompt.visible = true
-	$prompt.init_scene_data(scene_text, scene_tscn)
-	$prompt.init_scene("phone.tscn")
+	play_scene("phone.tscn")
+	
+func play_scene(scene_name):
+	# remove previous scene if there is one
+	if current_scene: current_scene.queue_free()
+	
+	# instantiate scene file
+	if scene_name in scene_tscn:
+		current_scene = scene_tscn[scene_name].instantiate()
+		self.add_child(current_scene)
+	
+	# play text
+	$prompt.dialogue(scene_text[scene_name])
+	$prompt.ask_question(scene_text[scene_name])
 
 
 
