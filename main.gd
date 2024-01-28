@@ -48,11 +48,8 @@ var scenes = {
 	}
 }
 
-var phone_scene = preload("res://phone.tscn").instantiate()
+
 
 func _ready():
 	$prompt.scenes = scenes
-	add_child(phone_scene)
 	$prompt.init_scene("phone.tscn")
-
-# todo: when $prompt._option_selected, remove previous scene and load next_scene

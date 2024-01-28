@@ -73,3 +73,4 @@ text = "Sample question"
 label_settings = SubResource("LabelSettings_xp4m0")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
