@@ -7,9 +7,17 @@ var scene_text = {
 			{"text": "Take a long bath", "next": "distraction.tscn"},
 			{"text": "Take a one hour nap", "next": "distraction.tscn"},
 			{"text": "Roll around in mud", "next": "distraction.tscn"},
-			{"text": "Play your favorite video game", "next": "distraction.tscn"}
+			{"text": "Rush out the door", "next": "distraction.tscn"}
 		]
 	},
+
+	"drive.tscn": {
+	"question": "You see a flower shop. Stop?",
+		"options": [
+			{"text": "Get some flowers", "next": "distraction.tscn"},
+			{"text": "Be on time", "next": "distraction.tscn"},
+	},
+
 	"distraction.tscn": {
 		"question": "How can you get out of this situation?",
 		"options": [
