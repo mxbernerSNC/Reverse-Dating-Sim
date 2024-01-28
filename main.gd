@@ -1,6 +1,12 @@
 extends Node2D
 
+var affection = 50
+
 var scene_text = {
+	"prologue.tscn" : {
+		"dialogue" : "Mom: 
+	},
+
 	"phone.tscn": {
 		"question": "The date starts in an hour... What will you do?",
 		"options": [
@@ -11,11 +17,13 @@ var scene_text = {
 		]
 	},
 
+
 	"drive.tscn": {
 	"question": "You see a flower shop. Stop?",
 		"options": [
 			{"text": "Get some flowers", "next": "distraction.tscn"},
-			{"text": "Be on time", "next": "distraction.tscn"},
+			{"text": "Be on time", "next": "distraction.tscn"}
+		]
 	},
 
 	"distraction.tscn": {
