@@ -2,22 +2,26 @@ extends Node2D
 
 var scene_text = {
 	"phone.tscn": {
+		"dialogue": [ 
+			"you have just recieved a text message from your mother"
+		],
 		"question": "The date starts in an hour... What will you do?",
 		"options": [
-			{"text": "Take a long bath", "next": "drive.tscn"},
-			{"text": "Take a one hour nap", "next": "drive.tscn"},
-			{"text": "Roll around in mud", "next": "drive.tscn"},
-			{"text": "Rush out the door", "next": "drive.tscn"}
+			{"text": "Take a long bath", "affection":5, "next": "drive.tscn"},
+			{"text": "Take a one hour nap", "affection":1, "next": "drive.tscn"},
+			{"text": "Roll around in mud", "affection":-5, "next": "drive.tscn"},
+			{"text": "Rush out the door", "affection":1, "next": "drive.tscn"}
 		]
 	},
 
 	"drive.tscn": {
-	"question": "You see a flower shop. Stop?",
+		"dialogue": [ ],
+		"question": "You see a flower shop. Stop?",
 		"options": [# todo: allow only two options
-			{"text": "Get some flowers", "next": "distraction.tscn"},
-			{"text": "Be on time", "next": "distraction.tscn"},
-			{"text": "Get some flowers", "next": "distraction.tscn"},
-			{"text": "Be on time", "next": "distraction.tscn"}
+			{"text": "Get some flowers", "affection":0, "next": "distraction.tscn"},
+			{"text": "Be on time", "affection":0, "next": "distraction.tscn"},
+			{"text": "Get some flowers", "affection":0, "next": "distraction.tscn"},
+			{"text": "Be on time", "affection":0, "next": "distraction.tscn"}
 		]
 	},
 
@@ -28,40 +32,43 @@ var scene_text = {
 		],
 		"question": "How can you get out of this situation?",
 		"options": [
-			{"text": "ignore her and change the subject", "next": "neutral.tscn"},
-			{"text": "Pretend to fall off your chair", "next": "fire.tscn"},
-			{"text": "Excuse yourself and go to the bathroom", "next": "fire.tscn"},
-			{"text": "Accuse her of a crime", "next": "argument.tscn"}
+			{"text": "ignore her and change the subject", "affection":0, "next": "neutral.tscn"},
+			{"text": "Pretend to fall off your chair", "affection":0, "next": "fire.tscn"},
+			{"text": "Excuse yourself and go to the bathroom", "affection":0, "next": "fire.tscn"},
+			{"text": "Accuse her of a crime", "affection":0, "next": "argument.tscn"}
 		]
 	},
 	
 	"fire.tscn": {
+		"dialogue": [ ],
 		"question": "Its getting hot in here, what do you do?",
 		"options": [
-			{"text": "Try to put out the fire", "next": "jail.tscn"},
-			{"text": "Run away", "next": "good_end.tscn"},
-			{"text": "Panic", "next": "jail.tscn"},
-			{"text": "Blame your date", "next": "jail.tscn"}
+			{"text": "Try to put out the fire", "affection":0, "next": "jail.tscn"},
+			{"text": "Run away", "affection":0, "next": "good_end.tscn"},
+			{"text": "Panic", "affection":0, "next": "jail.tscn"},
+			{"text": "Blame your date", "affection":0, "next": "jail.tscn"}
 		]
 	},
 	
 	"neutral.tscn": {
+		"dialogue": [ ],
 		"question": "You managed to move on, but now she is asking for another date?",
 		"options": [
-			{"text": "Agree to a second date", "next": "bad_end.tscn"},
-			{"text": "Run away", "next": "bad_end.tscn"},
-			{"text": "Panic", "next": "good_end.tscn"},
-			{"text": "Propose marrige", "next": "bad_end.tscn"}
+			{"text": "Agree to a second date", "affection":0, "next": "bad_end.tscn"},
+			{"text": "Run away", "affection":0, "next": "bad_end.tscn"},
+			{"text": "Panic", "affection":0, "next": "good_end.tscn"},
+			{"text": "Propose marrige", "affection":0, "next": "bad_end.tscn"}
 		]
 	},
 	
 	"argument.tscn": {
+		"dialogue": [ ],
 		"question": "The whole coffee shop is looking at you, what do you do?",
 		"options": [
-			{"text": "try to calm everyone down", "next": "good_end.tscn"},
-			{"text": "run away", "next": "good_end.tscn"},
-			{"text": "panic", "next": "good_end.tscn"},
-			{"text": "blame your date", "next": "bad_end.tscn"}
+			{"text": "try to calm everyone down", "affection":0, "next": "good_end.tscn"},
+			{"text": "run away", "affection":0, "next": "good_end.tscn"},
+			{"text": "panic", "affection":0, "next": "good_end.tscn"},
+			{"text": "blame your date", "affection":0, "next": "bad_end.tscn"}
 		]
 	}
 }
@@ -74,7 +81,9 @@ var affection = 50
 var scene_tscn = {
 	"phone.tscn": preload("res://phone.tscn"),
 	"drive.tscn": preload("res://drive.tscn"),
-	"distraction.tscn": preload("res://distraction.tscn")
+	"distraction.tscn": preload("res://distraction.tscn"),
+	"fire.tscn": preload("res://fire.tscn"),
+	"jail.tscn": preload("res://jail.tscn"),
 }
 
 func _ready():
@@ -86,6 +95,8 @@ func _start_game():
 	play_scene("phone.tscn")
 	
 func play_scene(scene_name):
+	print("Current affection: ", affection)
+	
 	# remove previous scene if there is one
 	if current_scene: current_scene.queue_free()
 	
@@ -97,6 +108,9 @@ func play_scene(scene_name):
 	# play text
 	$prompt.dialogue(scene_text[scene_name])
 	$prompt.ask_question(scene_text[scene_name])
+
+func change_affection(change_amount): set_affection(affection + change_amount)
+func set_affection(amount): affection = amount
 
 
 
