@@ -1,6 +1,6 @@
 extends Node2D
 
-var scenes = {
+var scene_text = {
 	"phone.tscn": {
 		"question": "The date starts in an hour... What will you do?",
 		"options": [
@@ -49,11 +49,10 @@ var scenes = {
 }
 
 var scene_tscn = {
-	"phone.tscn": load("res://phone.tscn"),
-	"distraction.tscn": load("res://distraction.tscn")
+	"phone.tscn": preload("res://phone.tscn"),
+	"distraction.tscn": preload("res://distraction.tscn")
 }
 
 func _ready():
-	$prompt.scene_tscn = scene_tscn
-	$prompt.scenes = scenes
+	$prompt.init_scene_data(scene_text, scene_tscn)
 	$prompt.init_scene("phone.tscn")
