@@ -23,7 +23,7 @@ func init_scene(scene_name):
 		options[i].text = scene.options[i].text
 		# disconnect button from previous scene
 		options[i].disconnect("pressed", _option_selected)
-		# connect button to _option_selected with next scene
+		# connect button to _option_selected with next_scene parameter
 		options[i].pressed.connect(_option_selected.bind(scene.options[i].next))
 
 func _option_selected(next_scene):

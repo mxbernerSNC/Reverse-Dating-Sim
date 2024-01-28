@@ -54,5 +54,27 @@ var scene_tscn = {
 }
 
 func _ready():
+	$prompt.visible = false
+	$title_screen/background/start.pressed.connect(_start_game)
+	
+func _start_game():
+	$prompt.visible = true
 	$prompt.init_scene_data(scene_text, scene_tscn)
 	$prompt.init_scene("phone.tscn")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

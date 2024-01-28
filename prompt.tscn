@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://nclmb31of5ke"]
+[gd_scene load_steps=3 format=3 uid="uid://d1spo40dtdjp3"]
 
 [ext_resource type="Script" path="res://prompt.gd" id="1_sfkva"]
 
@@ -6,6 +6,7 @@
 font_size = 32
 
 [node name="prompt" type="Control"]
+z_index = 100
 layout_mode = 3
 anchors_preset = 0
 offset_top = 768.0
