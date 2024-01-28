@@ -6,9 +6,12 @@ var options
 var curr_scene
 
 func init_scene(scene_name):
-	curr_scene = scene_tscn[scene_name].instantiate()
-	self.get_parent().add_child(curr_scene) # add tscn
+	# instance tscn file
+	if scene_name in scene_tscn:
+		curr_scene = scene_tscn[scene_name].instantiate()
+		self.get_parent().add_child(curr_scene)
 
+	# update prompt
 	var scene = scenes[scene_name]
 	options = self.find_children("opt*")
 	$question.text = scene.question
@@ -21,7 +24,10 @@ func init_scene(scene_name):
 		options[i].pressed.connect(_option_selected.bind(scene.options[i].next))
 
 func _option_selected(next_scene):
+	# remove previous scene
 	curr_scene.queue_free()
+	
+	# init next_scene
 	print("Switching to ", next_scene)
 	if next_scene in scenes:
 		init_scene(next_scene)
