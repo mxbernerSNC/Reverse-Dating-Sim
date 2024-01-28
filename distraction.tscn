@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://uuelgdhv7vw6"]
+
+[ext_resource type="Texture2D" uid="uid://851jp5peg8og" path="res://coffee_shop.jpg" id="1_y8xsu"]
+
+[node name="distraction" type="Sprite2D"]
+position = Vector2(948, 634)
+scale = Vector2(2.16109, 2.16109)
+texture = ExtResource("1_y8xsu")

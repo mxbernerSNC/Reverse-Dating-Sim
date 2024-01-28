@@ -1,12 +1,13 @@
 extends Control
 
-var phone_scene = preload("res://phone.tscn").instantiate()
-
+var scene_tscn
 var scenes
 var options
+var curr_scene
 
 func init_scene(scene_name):
-	self.get_parent().add_child(phone_scene) # add tscn
+	curr_scene = scene_tscn[scene_name].instantiate()
+	self.get_parent().add_child(curr_scene) # add tscn
 
 	var scene = scenes[scene_name]
 	options = self.find_children("opt*")
@@ -20,7 +21,7 @@ func init_scene(scene_name):
 		options[i].pressed.connect(_option_selected.bind(scene.options[i].next))
 
 func _option_selected(next_scene):
-	phone_scene.queue_free()
+	curr_scene.queue_free()
 	print("Switching to ", next_scene)
 	if next_scene in scenes:
 		init_scene(next_scene)

@@ -48,8 +48,12 @@ var scenes = {
 	}
 }
 
-
+var scene_tscn = {
+	"phone.tscn": load("res://phone.tscn"),
+	"distraction.tscn": load("res://distraction.tscn")
+}
 
 func _ready():
+	$prompt.scene_tscn = scene_tscn
 	$prompt.scenes = scenes
 	$prompt.init_scene("phone.tscn")
