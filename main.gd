@@ -5,11 +5,6 @@ var affection = 50
 #else keep playing; once '20 questions' is over, score checked 25 < aff <75 correlates to bad < good < elope
 
 var scene_text = {
-	#"prologue.tscn" : {
-	#	"dialogue" : "Mom: 
-	#},
-	#I don't think i'm doing this right so maybe someone else can get this part started
-
 	"phone.tscn": {
 		"question": "The date starts in an hour... What will you do?",
 		"options": [
@@ -30,6 +25,10 @@ var scene_text = {
 	},
 
 	"distraction.tscn": {
+		"dialogue": [ 
+			"rebethicca: How are you?!?", 
+			"you: ok..."
+		],
 		"question": "How can you get out of this situation?",
 		"options": [
 			{"text": "ignore her and change the subject", "next": "neutral.tscn"},
