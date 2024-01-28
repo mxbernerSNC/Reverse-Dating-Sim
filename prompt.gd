@@ -1,10 +1,5 @@
 extends Control
 
-func dialogue(scene):
-	if scene.dialogue:
-		print(scene.dialogue[0])
-		# todo: display dialogue
-
 func ask_question(scene):
 	var options = self.find_children("opt*")
 	$question.text = scene.question

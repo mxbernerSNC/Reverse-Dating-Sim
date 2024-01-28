@@ -71,6 +71,7 @@ layout_mode = 0
 offset_top = 639.0
 offset_right = 1920.0
 offset_bottom = 855.0
+text = "dialogue text"
 label_settings = SubResource("LabelSettings_w3sv8")
 horizontal_alignment = 1
 vertical_alignment = 1

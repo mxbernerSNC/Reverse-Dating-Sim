@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://nclmb31of5ke"]
 
 [ext_resource type="Script" path="res://prompt.gd" id="1_sfkva"]
-[ext_resource type="Theme" uid="uid://dvmg7sgxw3ka4" path="res://Buttons.tres" id="2_dxp2r"]
+[ext_resource type="Theme" uid="uid://bltjtyy1vdjy1" path="res://Buttons.tres" id="2_dxp2r"]
 [ext_resource type="FontFile" uid="uid://du1h1qwwjq3y0" path="res://PeaberryBase.ttf" id="3_o6vav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xp4m0"]

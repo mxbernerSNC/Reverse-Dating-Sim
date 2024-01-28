@@ -3,7 +3,8 @@ extends Node2D
 var scene_text = {
 	"phone.tscn": {
 		"dialogue": [ 
-			"you have just recieved a text message from your mother"
+			"you have just recieved a text message from your mother",
+			"she has a date for you"
 		],
 		"question": "The date starts in an hour... What will you do?",
 		"options": [
@@ -15,7 +16,9 @@ var scene_text = {
 	},
 
 	"drive.tscn": {
-		"dialogue": [ ],
+		"dialogue": [ 
+			"You are driving down the street"
+		],
 		"question": "You see a flower shop. Stop?",
 		"options": [# todo: allow only two options
 			{"text": "Get some flowers", "affection":0, "next": "distraction.tscn"},
@@ -27,8 +30,8 @@ var scene_text = {
 
 	"distraction.tscn": {
 		"dialogue": [ 
-			"rebethicca: How are you?!?", 
-			"you: ok..."
+			"You have arrived at the coffee shop",
+			"Your date asks a personal question"
 		],
 		"question": "How can you get out of this situation?",
 		"options": [
@@ -91,10 +94,12 @@ func _ready():
 	$title_screen/background/start.pressed.connect(_start_game)
 	
 func _start_game():
+	$title_screen.visible = false
 	$prompt.visible = true
 	play_scene("phone.tscn")
 	
 func play_scene(scene_name):
+	$prompt.visible = false
 	print("Current affection: ", affection)
 	
 	# remove previous scene if there is one
@@ -104,10 +109,12 @@ func play_scene(scene_name):
 	if scene_name in scene_tscn:
 		current_scene = scene_tscn[scene_name].instantiate()
 		self.add_child(current_scene)
+
+	$dialogue.play(scene_text[scene_name])
 	
-	# play text
-	$prompt.dialogue(scene_text[scene_name])
-	$prompt.ask_question(scene_text[scene_name])
+func open_prompt(scene):
+	$prompt.visible = true
+	$prompt.ask_question(scene)
 
 func change_affection(change_amount): set_affection(affection + change_amount)
 func set_affection(amount): affection = amount

@@ -1,10 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://uune8hdky5hl"]
-
-[ext_resource type="Texture2D" uid="uid://0wd0okc8geyi" path="res://hand_phone.jpg" id="1_lc0sv"]
+[gd_scene format=3 uid="uid://bxdc6wtg8h5x4"]
 
 [node name="phone" type="Sprite2D"]
-
-[node name="HandPhone" type="Sprite2D" parent="."]
-position = Vector2(833, 777)
-scale = Vector2(1.14528, 1.14528)
-texture = ExtResource("1_lc0sv")
