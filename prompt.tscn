@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1spo40dtdjp3"]
+[gd_scene load_steps=5 format=3 uid="uid://nclmb31of5ke"]
 
 [ext_resource type="Script" path="res://prompt.gd" id="1_sfkva"]
+[ext_resource type="Theme" uid="uid://dvmg7sgxw3ka4" path="res://Buttons.tres" id="2_dxp2r"]
+[ext_resource type="FontFile" uid="uid://du1h1qwwjq3y0" path="res://PeaberryBase.ttf" id="3_o6vav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xp4m0"]
+font = ExtResource("3_o6vav")
 font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
 
 [node name="prompt" type="Control"]
 z_index = 100
@@ -25,6 +31,7 @@ offset_top = -25.0
 offset_right = 950.0
 offset_bottom = 25.0
 grow_vertical = 2
+theme = ExtResource("2_dxp2r")
 text = "option1"
 
 [node name="opt2" type="Button" parent="."]
@@ -37,6 +44,7 @@ offset_top = -25.0
 offset_right = 1440.0
 offset_bottom = 25.0
 grow_vertical = 2
+theme = ExtResource("2_dxp2r")
 text = "option2
 "
 
@@ -49,6 +57,7 @@ offset_left = 480.0
 offset_top = -50.0
 offset_right = 950.0
 grow_vertical = 0
+theme = ExtResource("2_dxp2r")
 text = "option3
 "
 
@@ -61,6 +70,7 @@ offset_left = 970.0
 offset_top = -50.0
 offset_right = 1440.0
 grow_vertical = 0
+theme = ExtResource("2_dxp2r")
 text = "option4"
 
 [node name="question" type="Label" parent="."]
