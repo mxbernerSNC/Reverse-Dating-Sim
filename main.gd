@@ -1,11 +1,14 @@
 extends Node2D
 
 var affection = 50
+#if var == 0, adv to bad ending; if var ==100, adv to elope ending immediately
+#else keep playing; once '20 questions' is over, score checked 25 < aff <75 correlates to bad < good < elope
 
 var scene_text = {
-	"prologue.tscn" : {
-		"dialogue" : "Mom: 
-	},
+	#"prologue.tscn" : {
+	#	"dialogue" : "Mom: 
+	#},
+	#I don't think i'm doing this right so maybe someone else can get this part started
 
 	"phone.tscn": {
 		"question": "The date starts in an hour... What will you do?",
