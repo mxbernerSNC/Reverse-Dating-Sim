@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0085t2lkrje7"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_kxb8l"]
+
+[node name="car" type="Sprite2D"]
+texture = SubResource("ImageTexture_kxb8l")

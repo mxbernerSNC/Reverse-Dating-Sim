@@ -8,17 +8,18 @@ var scene_text = {
 	"phone.tscn": {
 		"question": "The date starts in an hour... What will you do?",
 		"options": [
-			{"text": "Take a long bath", "next": "distraction.tscn"},
-			{"text": "Take a one hour nap", "next": "distraction.tscn"},
-			{"text": "Roll around in mud", "next": "distraction.tscn"},
-			{"text": "Rush out the door", "next": "distraction.tscn"}
+			{"text": "Take a long bath", "next": "drive.tscn"},
+			{"text": "Take a one hour nap", "next": "drive.tscn"},
+			{"text": "Roll around in mud", "next": "drive.tscn"},
+			{"text": "Rush out the door", "next": "drive.tscn"}
 		]
 	},
 
-
 	"drive.tscn": {
 	"question": "You see a flower shop. Stop?",
-		"options": [
+		"options": [# todo: allow only two options
+			{"text": "Get some flowers", "next": "distraction.tscn"},
+			{"text": "Be on time", "next": "distraction.tscn"},
 			{"text": "Get some flowers", "next": "distraction.tscn"},
 			{"text": "Be on time", "next": "distraction.tscn"}
 		]
@@ -37,6 +38,7 @@ var scene_text = {
 			{"text": "Accuse her of a crime", "next": "argument.tscn"}
 		]
 	},
+	
 	"fire.tscn": {
 		"question": "Its getting hot in here, what do you do?",
 		"options": [
@@ -46,6 +48,7 @@ var scene_text = {
 			{"text": "Blame your date", "next": "jail.tscn"}
 		]
 	},
+	
 	"neutral.tscn": {
 		"question": "You managed to move on, but now she is asking for another date?",
 		"options": [
@@ -55,6 +58,7 @@ var scene_text = {
 			{"text": "Propose marrige", "next": "bad_end.tscn"}
 		]
 	},
+	
 	"argument.tscn": {
 		"question": "The whole coffee shop is looking at you, what do you do?",
 		"options": [
@@ -68,6 +72,7 @@ var scene_text = {
 
 var scene_tscn = {
 	"phone.tscn": preload("res://phone.tscn"),
+	"drive.tscn": preload("res://drive.tscn"),
 	"distraction.tscn": preload("res://distraction.tscn")
 }
 
